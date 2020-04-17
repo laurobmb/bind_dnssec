@@ -1,6 +1,6 @@
 $TTL 0
 @ SOA ns.conectado.local. hostmaster.conectado.local. (
-    2020011601 ; serial
+    2020041701 ; serial
     21600 ; refresh after 6 hours
     3600 ; retry after 1 hour
     604800 ; expire after 1 week
