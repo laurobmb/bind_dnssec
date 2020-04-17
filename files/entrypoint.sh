@@ -16,6 +16,7 @@ chown named.named -R /etc/named.conf
 chown named.named -R /var/named/
 chown named.named -R /etc/named.conf
 chown named.named -R /var/named/
+chown named.named -R /run/named/
 
 echo "Checando arquivos de zonas"
 cd /var/named 
@@ -23,4 +24,5 @@ named-checkzone conectado.local authority.zone.signed
 named-checkzone 123.168.192.in-addr.arpa reverse.zone
 named-checkconf -z /etc/named.conf
 
-
+#/sbin/named -g
+/sbin/named -4 -c /etc/named.conf -u named -f
