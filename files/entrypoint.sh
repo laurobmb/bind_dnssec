@@ -17,6 +17,8 @@ chown named.named -R /var/named/
 chown named.named -R /etc/named.conf
 chown named.named -R /var/named/
 chown named.named -R /run/named/
+touch /var/log/security.log
+chown named.named /var/log/security.log
 
 echo "Checando arquivos de zonas"
 cd /var/named 
