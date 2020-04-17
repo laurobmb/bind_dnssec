@@ -8,5 +8,5 @@ RUN dnf clean all
 ADD ./files /opt/dnssec
 EXPOSE 53/udp 53/tcp
 ENTRYPOINT [ "/opt/dnssec/entrypoint.sh" ]
-USER named
+#USER named
 CMD ["/sbin/named -4 -c /etc/named.conf -u named -f"]

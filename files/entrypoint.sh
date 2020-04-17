@@ -24,5 +24,3 @@ named-checkzone conectado.local authority.zone.signed
 named-checkzone 123.168.192.in-addr.arpa reverse.zone
 named-checkconf -z /etc/named.conf
 
-#/sbin/named -g
-
