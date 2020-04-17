@@ -8,4 +8,3 @@ ADD ./files /opt/dnssec
 USER named
 EXPOSE 53/udp 53/tcp
 ENTRYPOINT [ "/opt/dnssec/entrypoint.sh" ]
-CMD ["/usr/sbin/named"]
