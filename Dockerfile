@@ -9,4 +9,4 @@ ADD ./files /opt/dnssec
 EXPOSE 53/udp 53/tcp
 ENTRYPOINT [ "/opt/dnssec/entrypoint.sh" ]
 #USER named
-CMD ["/sbin/named -4 -c /etc/named.conf -u named -f"]
+#CMD ["/sbin/named -4 -c /etc/named.conf -u named -f"]
