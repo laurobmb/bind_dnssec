@@ -18,10 +18,6 @@ chown named.named -R /etc/named.conf
 chown named.named -R /var/named/
 chown named.named -R /run/named/
 
-echo "Criando pasta de LOG"
-mkdir /var/log/named/
-chown named.named /run/named
-
 echo "Checando arquivos de zonas"
 cd /var/named 
 named-checkzone conectado.local authority.zone.signed
