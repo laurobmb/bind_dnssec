@@ -1,0 +1,13 @@
+$TTL 0
+@ SOA ns.olinda.com.br. hostmaster.olinda.com.br. (
+    2020011601 ; serial
+    21600 ; refresh after 6 hours
+    3600 ; retry after 1 hour
+    604800 ; expire after 1 week
+    86400 ) ; minimum TTL of 1 day
+    IN  NS  ns.olinda.com.br.
+100 IN  PTR ns.olinda.com.br.
+102 IN  PTR server1.olinda.com.br.
+103 IN  PTR server2.olinda.com.br.
+104 IN  PTR mail.olinda.com.br.
+105 IN  PTR mail2.olinda.com.br.

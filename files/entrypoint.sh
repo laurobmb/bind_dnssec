@@ -1,0 +1,26 @@
+#!/bin/bash
+
+echo "Assinando zonas de DNSSEC"
+cd /opt/dnssec/
+./reassina.sh olinda.com.br authority.zone
+./reassina.reverse.sh 15.168.192.in-addr.arpa reverse.zone
+
+echo "Copiando os arquivos para as pastas"
+rsync --progress -avzh /opt/dnssec/named.conf /etc/named.conf
+rsync --progress -avzh /opt/dnssec/ /var/named
+rsync --progress -avzh /opt/dnssec/named.conf /etc/named.conf
+rsync --progress -avzh /opt/dnssec/ /var/named
+
+echo "Setando permissoes"
+chown named.named -R /etc/named.conf
+chown named.named -R /var/named/
+chown named.named -R /etc/named.conf
+chown named.named -R /var/named/
+
+echo "Checando arquivos de zonas"
+cd /var/named 
+named-checkzone olinda.com.br authority.zone.signed
+named-checkzone 15.168.192.in-addr.arpa reverse.zone
+named-checkconf -z /etc/named.conf
+
+
