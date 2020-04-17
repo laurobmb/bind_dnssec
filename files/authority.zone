@@ -1,21 +1,22 @@
 $TTL 0
-@   IN  SOA     ns.olinda.com.br.   hostmaster.olinda.com.br. (
+@   IN  SOA     ns.conectado.local.   hostmaster.conectado.local. (
     2020011603 ; serial
     21600 ; refresh after 6 hours
     3600 ; retry after 1 hour
     604800 ; expire after 1 week
     86400 ) ; minimum TTL of 1 day
-olinda.com.br.  IN  NS  ns.olinda.com.br.
-olinda.com.br.  IN  MX  10  mail.olinda.com.br.
-olinda.com.br.  IN  MX  20  mail2.olinda.com.br.
-ns      IN  A   192.168.15.100
-server1 IN  A   192.168.15.102
-server2 IN  A   192.168.15.103
-mail    IN  A   192.168.15.104
-mail2   IN  A   192.168.15.105
+conectado.local.  IN  NS  ns.conectado.local.
+conectado.local.  IN  MX  10  mail.conectado.local.
+conectado.local.  IN  MX  20  mail2.conectado.local.
+ns      IN  A   192.168.123.100
+server1 IN  A   192.168.123.102
+server2 IN  A   192.168.123.103
+mail    IN  A   192.168.123.104
+mail2   IN  A   192.168.123.105
 ftp     IN  CNAME   server1
 www     IN  CNAME   server2
-olinda.com.br.  3600    TXT “v=spf1 a mx ptr -all”
+conectado.local.  3600    TXT “v=spf1 a mx ptr -all”
 
-$include Kolinda.com.br.+008+38944.key
-$include Kolinda.com.br.+008+49245.key
+$include Kconectado.local.+008+36408.key
+$include Kconectado.local.+008+59587.key
+
