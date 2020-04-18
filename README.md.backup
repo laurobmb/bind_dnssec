@@ -39,3 +39,4 @@ O arquivo ***files/named.conf*** necessita de alterações também, aqui você d
 >     file "reverse.zone";
 >     allow-update { none; };
 > };
+> 
