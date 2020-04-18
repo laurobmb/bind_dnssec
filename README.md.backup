@@ -4,27 +4,25 @@
 note: The keys must be in the code before uploading the container, these within the project serve as an example.
 
 ## Configure
-No arquivo **files/authority.zone** configure a zona que o DNS deve responder, bem como os endereços IPs dos hosts.
+In the file ***files/authority.zone*** configure the zone that the DNS must respond to, as well as the IP addresses of the hosts.
 
-No arquivo **files/reverse.zone** configure a zona reversa que o DNS deve responder, bem como os endereços IPs dos hosts.
+In the file ***files/reverse.zone*** configure the reverse zone that the DNS must respond to, as well as the IP addresses of the hosts.
 
 #### Gerar Chave KSK e ZSK
-A configuração das chaves é muito importante para o funcionamento do DNSSEC, execute:
+The configuration of the keys is very important for the functioning of DNSSEC, execute:
 
 ***dnssec-keygen -r /dev/urandom -a RSASHA256 -b 4096 -f KSK -n ZONE [ domínio que você escolheu ]***
 
 ***dnssec-keygen -r /dev/urandom -a RSASHA256 -b 1024 -n ZONE [ domínio que você escolheu ]***
 
-Inclua as chaves geradas no arquivo **files/authority.zone** (já possui um exemplo dentro do arquivo)
+Include the generated keys in the file ***files/authority.zone*** (already have an example inside the file)
 
-
-Execute os scripts para criar o DSSET do domínio e a primeira assinatura:
+Run the scripts to create the domain DSSET and the first signature:
 
 - reassina.sh
 - reassina.reverse.sh
 
-O arquivo ***files/entrypoint.sh*** necessita de alterações, nele você coloca os endereços IPs para que ao subir o contêiner o podman possa reassinar a zona.
-
+The file *** files / entrypoint.sh *** needs changes, in it you put the IP addresses so that when the container goes up, the podman can re-sign the zone.
 
 O arquivo ***files/named.conf*** necessita de alterações também, aqui você deve colocar o domínio. 
 
@@ -39,4 +37,3 @@ O arquivo ***files/named.conf*** necessita de alterações também, aqui você d
 >     file "reverse.zone";
 >     allow-update { none; };
 > };
-> 
