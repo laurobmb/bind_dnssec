@@ -26,5 +26,9 @@ named-checkzone conectado.local authority.zone.signed
 named-checkzone 123.168.192.in-addr.arpa reverse.zone
 named-checkconf -z /etc/named.conf
 
+echo "Ajustando resolv.conf"
+echo "nameserver 127.0.0.1" > /etc/resolv.conf
+
+echo "Executando o serviço de DNS"
 /sbin/named -4 -c /etc/named.conf -u named -f
 

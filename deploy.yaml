@@ -1,0 +1,30 @@
+---
+  - hosts: binddns
+    tasks:
+    
+    - name: Copiando DNS
+      synchronize:
+        src: ./dns/
+        dest: /usr/local/DNSSEC
+        delete: yes
+        recursive: yes
+
+    - name: Parando container
+      command: "podman stop binddns"
+      ignore_errors: True
+  
+    - name: Deletando container
+      command: "podman rm binddns"
+      ignore_errors: True
+
+    - name: Deletando a Image
+      command: "podman rmi localhost/dns"
+      ignore_errors: True
+
+    - name: Build a Image
+      command: "podman build -t dns /usr/local/DNSSEC/"
+      ignore_errors: True
+
+    - name: Iniciano container
+      command: "podman run --name binddns -d -p 53:53/UDP dns"
+      ignore_errors: True
